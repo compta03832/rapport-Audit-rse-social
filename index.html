@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rapport RSE - Volet Social 2024</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        /* Ajout d'un style pour que les icônes dans les plans d'action soient bien alignées */
+        .lucide-icon-align {
+            flex-shrink: 0;
+            margin-top: 0.25rem;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+
+    <div class="max-w-7xl mx-auto p-4 sm:p-6 lg:p-8">
+        <!-- En-tête -->
+        <header class="bg-white p-8 rounded-xl shadow-lg mb-8 border-t-4 border-blue-600">
+            <div class="flex items-center justify-center mb-4">
+                <i data-lucide="users-round" class="h-12 w-12 text-blue-600 mr-4"></i>
+                <h1 class="text-3xl sm:text-4xl font-bold text-gray-800 text-center">Tableau de Bord Social</h1>
+            </div>
+            <p class="text-center text-xl text-gray-600">Bilan 2024 & Analyse des Tendances 2022-2024</p>
+        </header>
+
+        <!-- Section 1: LE PRÉSENT - Photo de l'entreprise à fin 2024 -->
+        <div class="bg-white p-6 rounded-xl shadow-md mb-8">
+            <h2 class="text-2xl font-bold text-center text-gray-800 mb-6">Le Présent : Situation au 31/12/2024</h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+                <div class="p-4 bg-slate-50 rounded-lg">
+                    <i data-lucide="user-check" class="h-8 w-8 text-blue-500 mx-auto mb-3"></i>
+                    <p class="text-3xl font-bold">11</p>
+                    <h3 class="text-sm font-semibold text-gray-600">Collaborateurs (ETP: 9,07)</h3>
+                </div>
+                <div class="p-4 bg-slate-50 rounded-lg">
+                    <i data-lucide="scale" class="h-8 w-8 text-purple-500 mx-auto mb-3"></i>
+                    <p class="text-3xl font-bold">45%</p>
+                    <h3 class="text-sm font-semibold text-gray-600">Part de Femmes dans l'effectif</h3>
+                </div>
+                <div class="p-4 bg-slate-50 rounded-lg">
+                    <i data-lucide="file-signature" class="h-8 w-8 text-green-500 mx-auto mb-3"></i>
+                    <p class="text-3xl font-bold">91%</p>
+                    <h3 class="text-sm font-semibold text-gray-600">Contrats en CDI</h3>
+                </div>
+                <div class="p-4 bg-slate-50 rounded-lg">
+                    <i data-lucide="shield-check" class="h-8 w-8 text-red-500 mx-auto mb-3"></i>
+                    <p class="text-3xl font-bold">100%</p>
+                    <h3 class="text-sm font-semibold text-gray-600">Formés aux gestes de 1er secours</h3>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 2: LE PASSÉ - Évolution des indicateurs clés 2022-2024 -->
+        <div class="bg-white p-6 rounded-xl shadow-md mb-8">
+            <h2 class="text-2xl font-bold text-center text-gray-800 mb-6">Le Passé : Nos Évolutions Clés</h2>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <div>
+                    <h3 class="text-lg font-semibold mb-4 text-center">Évolution du Turn-Over (%)</h3>
+                    <canvas id="turnoverChart"></canvas>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4 text-center">Part des déplacements en mode doux (%)</h3>
+                    <canvas id="mobiliteChart"></canvas>
+                </div>
+            </div>
+            <div class="mt-12">
+                 <h3 class="text-lg font-semibold mb-4 text-center">Pyramide des Âges au 31/12/2024</h3>
+                 <!-- Conteneur pour le graphique pour un meilleur contrôle de la taille et de la netteté -->
+                 <div class="relative h-96 w-full max-w-3xl mx-auto">
+                    <canvas id="pyramideAgesChart"></canvas>
+                 </div>
+            </div>
+        </div>
+
+        <!-- Section 3: LE FUTUR - Plan d'action 2025 -->
+        <div class="bg-white p-6 rounded-xl shadow-md">
+            <h2 class="text-2xl font-bold text-center text-gray-800 mb-6">Le Futur : Nos Engagements pour 2025</h2>
+            <div class="space-y-6 max-w-4xl mx-auto">
+                <div class="flex items-start p-4 bg-green-50 rounded-lg border-l-4 border-green-500">
+                    <i data-lucide="trending-up" class="h-6 w-6 text-green-700 mr-4 lucide-icon-align"></i>
+                    <div>
+                        <h5 class="font-bold text-green-800">Priorité 1 : Consolider la Stabilité et la Fidélisation</h5>
+                        <p class="text-gray-700"><strong>Constat :</strong> Après une année 2023 marquée par un fort turn-over (64%), l'année 2024 affiche un taux de 0%. C'est le résultat d'un effort collectif pour améliorer l'environnement de travail et la cohésion d'équipe.
+                        <br><strong>Objectif 2025 :</strong> Maintenir ce climat de confiance et de stabilité.
+                        <br><strong>Actions :</strong>
+                        <br>• Poursuivre les points d'écoute réguliers pour anticiper les besoins.
+                        <br>• Renforcer le parcours d'intégration pour les futures recrues afin de garantir leur succès.
+                        <br>• Valoriser les réussites collectives pour maintenir une dynamique positive.
+                        </p>
+                    </div>
+                </div>
+                <div class="flex items-start p-4 bg-blue-50 rounded-lg border-l-4 border-blue-500">
+                    <i data-lucide="heart-pulse" class="h-6 w-6 text-blue-700 mr-4 lucide-icon-align"></i>
+                    <div>
+                        <h5 class="font-bold text-blue-800">Priorité 2 : Promouvoir la Santé et la Sécurité au Travail</h5>
+                        <p class="text-gray-700"><strong>Constat :</strong> Notre engagement pour la sécurité est une priorité, concrétisé par un **partenariat solide avec France Formation**. Grâce à cet accompagnement, 100% de nos collaborateurs sont formés aux gestes de premiers secours et à la prévention des risques (PRAP). De plus, la part des déplacements doux progresse, atteignant 36% en 2024.
+                        <br><strong>Objectif 2025 :</strong> Ancrer durablement notre culture de la prévention et encourager les modes de vie sains.
+                        <br><strong>Actions :</strong>
+                        <br>• Maintenir à 100% le niveau de formation en santé et sécurité via notre rendez-vous annuel avec notre partenaire.
+                        <br>• Étudier de nouvelles incitations pour le forfait mobilité durable.
+                        </p>
+                    </div>
+                </div>
+                <div class="flex items-start p-4 bg-purple-50 rounded-lg border-l-4 border-purple-500">
+                    <i data-lucide="award" class="h-6 w-6 text-purple-700 mr-4 lucide-icon-align"></i>
+                    <div>
+                        <h5 class="font-bold text-purple-800">Priorité 3 : Viser la Parité et Développer les Talents</h5>
+                        <p class="text-gray-700"><strong>Constat :</strong> Nous tendons vers un équilibre hommes/femmes (45% de femmes en 2024). Suite au départ de notre responsable en décembre 2023, nous avons saisi l'opportunité de promouvoir un talent interne.
+                        <br><strong>Objectif 2025 :</strong> Favoriser activement l'accès des femmes aux postes à responsabilités.
+                        <br><strong>Actions concrètes :</strong>
+                        <br>• **Une collaboratrice est actuellement en cours de formation pour devenir adjointe**, avec une perspective d'évolution vers un poste de responsable. C'est une première étape clé de notre engagement pour la parité dans l'encadrement.
+                        <br>• Poursuivre la construction de parcours de développement des compétences pour tous.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        lucide.createIcons();
+
+        const years = ['2022', '2023', '2024'];
+        const data = {
+            turnover: [18.2, 64.3, 0.0],
+            mobiliteDouce: [null, 30.8, 36.4],
+            // *** DONNÉES DE LA PYRAMIDE MISES À JOUR ***
+            pyramide: {
+                // Données exactes du Bilan Social au 31/12/2024
+                // Ordonnées du plus jeune au plus âgé pour l'affichage
+                labels: ['20-25', '25-30', '30-35', '35-40', '40-45', '45-50', '50-55', '55-60', '60-65', '65-70'],
+                femmes: [0, 0, 0, 0, 2, 1, 2, 0, 0, 0],
+                hommes: [2, 0, 0, 1, 2, 1, 0, 0, 0, 0]
+            }
+        };
+        
+        // Inverser les données pour l'affichage de la pyramide (valeurs négatives pour les hommes)
+        const hommesDataPyramide = data.pyramide.hommes.map(v => -v);
+
+        function createLineChart(canvasId, labels, datasets, yLabel = '') {
+            const ctx = document.getElementById(canvasId).getContext('2d');
+            new Chart(ctx, {
+                type: 'line',
+                data: { labels, datasets },
+                options: {
+                    responsive: true,
+                    plugins: { legend: { display: false } },
+                    scales: { y: { beginAtZero: true, ticks: { callback: v => v + yLabel } } }
+                }
+            });
+        }
+        
+        // *** FONCTION DE LA PYRAMIDE DES ÂGES AMÉLIORÉE POUR LA NETTETÉ ***
+        function createPyramidChart(canvasId) {
+            const ctx = document.getElementById(canvasId).getContext('2d');
+            new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: data.pyramide.labels.map(l => l + ' ans'),
+                    datasets: [
+                        { 
+                            label: 'Hommes', 
+                            data: hommesDataPyramide, 
+                            backgroundColor: 'rgba(59, 130, 246, 0.8)', // Bleu plus visible
+                            borderColor: 'rgba(59, 130, 246, 1)',
+                            borderWidth: 1
+                        },
+                        { 
+                            label: 'Femmes', 
+                            data: data.pyramide.femmes, 
+                            backgroundColor: 'rgba(236, 72, 153, 0.8)', // Rose plus visible
+                            borderColor: 'rgba(236, 72, 153, 1)',
+                            borderWidth: 1
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false, // Crucial pour la netteté dans un conteneur
+                    indexAxis: 'y',
+                    plugins: {
+                        legend: { 
+                            position: 'top',
+                            labels: { font: { size: 14 } }
+                        },
+                        tooltip: { 
+                            callbacks: { label: c => `${c.dataset.label}: ${Math.abs(c.raw)}` } 
+                        }
+                    },
+                    scales: {
+                        x: { 
+                            stacked: true, 
+                            ticks: { 
+                                callback: v => Math.abs(v), 
+                                stepSize: 1,
+                                font: { size: 12 }
+                            },
+                            title: { 
+                                display: true, 
+                                text: "Nombre de collaborateurs",
+                                font: { size: 14, weight: 'bold' }
+                            },
+                            grid: {
+                                color: 'rgba(0, 0, 0, 0.05)' // Grille plus discrète
+                            }
+                        },
+                        y: { 
+                            stacked: true, 
+                            title: { 
+                                display: true, 
+                                text: "Tranches d'âge",
+                                font: { size: 14, weight: 'bold' }
+                            },
+                            ticks: {
+                                font: { size: 12 }
+                            },
+                             grid: {
+                                color: 'rgba(0, 0, 0, 0.05)'
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            // Graphique Turn-Over
+            createLineChart('turnoverChart', years, [
+                { data: data.turnover, borderColor: '#f97316', backgroundColor: '#f9731620', fill: true, tension: 0.4, pointRadius: 5 }
+            ], '%');
+
+            // Graphique Mobilité Douce
+            createLineChart('mobiliteChart', ['2022', '2023', '2024'], [
+                { data: data.mobiliteDouce, borderColor: '#10b981', backgroundColor: '#10b98120', fill: true, tension: 0.4, pointRadius: 5, spanGaps: true }
+            ], '%');
+            
+            // Pyramide des âges
+            createPyramidChart('pyramideAgesChart');
+        });
+    </script>
+</body>
+</html>
